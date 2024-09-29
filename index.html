@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esther Murugi Portfolio</title>
+    <link rel="icon" href="/Assets/photos/estcon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #8C182D;
+            --secondary: #590F1D;
+            --accent: #A68881;
+            --accent2: #A67D44;
+            --accent3: #CDBCAB;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('Assets/photos/Background\ Pic\ 1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            opacity: 0.5; /* Adjust the opacity as needed */
+            z-index: -1;
+        }
+
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-accent { background-color: var(--accent); }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-accent { color: var(--accent); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .portfolio-card {
+    position: relative;
+    background-color: #590F1D;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+    opacity: 0.5; /* Set initial opacity */
+}
+
+.portfolio-card:hover img {
+    opacity: 1; /* Remove overlay on hover */
+}
+
+.portfolio-text {
+    padding: 20px;
+    background-color: rgb(89, 15, 29); /* Slight transparency to match the overlay */
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+        .social-icon {
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-icon:hover {
+            color: var(--primary);
+
+        }
+
+       /* Testimonial Slider Styles */
+.testimonial-section {
+    background: url('Assets/photos/Background\ Pic\ 3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.testimonial-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(166, 125, 68, 0.918); /* Applying the #A67D44 color with 75% opacity */
+}
+
+.testimonial-slider {
+    position: relative;
+    z-index: 1;
+    padding: 20px; /* Adds padding around the slider content */
+}
+
+.testimonial-item {
+    display: none;
+    text-align: center;
+    color: #fff;
+}
+
+.testimonial-item.active {
+    display: block;
+}
+
+.testimonial-arrow {
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    padding: 10px; /* Adds some padding around the arrows */
+}
+
+.testimonial-arrow.left {
+    left: 10px; /* Increased from 20px to add more space */
+}
+
+.testimonial-arrow.right {
+    right: 10px; /* Increased from 20px to add more space */
+        }
+
+        #cta {
+    background-image: url('your-book-image.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+}
+
+#cta .animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+ /* Add some custom animations */
+ @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+
+        /* Delays for animations */
+        .delay-1s {
+            animation-delay: 1s;
+        }
+
+        .delay-2s {
+            animation-delay: 2s;
+        }
+
+        /* Custom font for incursive text */
+        .font-cursive {
+            font-family: 'Pacifico', cursive;
+        }
+        .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-button {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  margin-top: 30px;
+  font-size: 1.125rem;
+  font-weight: bold;
+  transition: background-color 300ms;
+  animation: bounce 1s infinite;
+}
+
+.download-button:hover {
+  background-color: var(--secondary);
+}
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-icon {
+    width: 40px;
+    height: 40px;
+}
+
+
+/* Call to Action Section Styles */
+.cta-section {
+    position: relative;
+}
+
+.cta-button {
+    background-color: #5A2738; /* Dark burgundy color */
+    color: #fff;
+    display: inline-block;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #42202B; /* Slightly darker shade on hover */
+}
+
+/* Contact Section Styles */
+.contact-section {
+    background: url('/Assets/photos/Background\ Pic\ 3.jpg') no-repeat center center fixed; /* Set your background image path */
+    background-size: cover;
+    position: relative;
+    color: #333;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8); /* White overlay with some transparency */
+}
+
+.contact-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info i {
+    color: #A67D44; /* Gold color for icons */
+}
+
+.contact-info p {
+    margin: 0;
+}
+
+/* Add spacing above the title */
+.hero-section {
+    height: 220px; /* Adjust the height as needed */
+  }
+
+/* Adjust for responsiveness */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        margin-top: 30px; /* Reduced margin for smaller screens */
+        font-size: 2.5rem;
+    }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+    </style>
+</head>
+<body>
+
+    
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254717011212" class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+</a>
+
+
+
+<!-- Hero Section -->
+<section class="hero-section flex items-center justify-center">
+    
+</section>
+
+
+
+   <!-- Portfolio Section -->
+<section id="portfolio" class="py-16">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-7xl font-bold mb-8 animate-fade-in-up">Esther Murugi</h1>
+            <p class="text-2xl mb-12 animate-fade-in-up delay-1s">Designing Change, One Visual at a Time.</p>
+        </div>
+        <h2 class="text-4xl font-bold text-center mb-12 text-primary">My Portfolio</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Print & Digital Designs -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/Photo 1.png" alt="Print & Digital Designs" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Print & Digital Designs</h5>
+                    <p class="mt-2">Flyers, Powerpoints, Social Media Graphics.</p>
+                </div>
+            </div>
+
+            <!-- Campaigns -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/Photo 2.png" alt="Campaigns" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Campaigns</h5>
+                    <p class="mt-2">Conceptualization to Execution</p>
+                </div>
+            </div>
+
+            <!-- Case Studies -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/Photo 3.png" alt="Case Studies" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Case Studies</h5>
+                    <p class="mt-2">Project Goals and Outcomes</p>
+                </div>
+            </div>
+
+            <!-- Impactful Visuals -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/Photo 4.png" alt="Impact Visuals" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Impact Visuals</h5>
+                    <p class="mt-2">Infographics and Data visualisation</p>
+                </div>
+            </div>
+
+            <!-- Specialized Skills -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/Photo 5.png" alt="Specialized Skills" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Specialized Skills</h5>
+                    <p class="mt-2">Brand Identity work</p>
+                </div>
+            </div>
+
+            <!-- Community & Social Impact Projects -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/Photo 6.png" alt="Community & Social Impact Projects" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Community & Social Impact Projects</h5>
+                </div>
+            </div>
+
+            <!-- Professional Development -->
+            <div class="portfolio-card relative fade-in">
+                <img src="Assets/photos/Photo 7.jpg" alt="Professional Development" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Professional Development</h5>
+                    <p class="mt-2">Certificates, Courses, Awards, and Recognition</p>
+                </div>
+            </div>
+
+            <!-- Technical Proficiency -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/Photo 8.png" alt="Technical Proficiency" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">Technical Proficiency</h5>
+                    <p class="mt-2">Tools and Proficiency</p>
+                </div>
+            </div>
+
+            <!-- NGO Experience -->
+            <div class="portfolio-card relative fade-in">
+                <img src="/Assets/photos/hands.jpg" alt="NGO Experience" class="w-full h-full object-cover">
+                <div class="portfolio-text p-4 text-center">
+                    <h5 class="text-lg font-bold uppercase">NGO Experience</h5>
+                    <p class="mt-2">Client List and Testimonials</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section py-12">
+    <div class="container mx-auto text-center">
+        <p class="text-3xl font-bold mb-6">Let’s make the world a better place</p>
+        <a href="mailto:info@esthermurugi.com" style="background-color: #590F1D; color: white; padding: 12px 32px; font-size: 1.125rem; font-weight: bold; transition: background-color 0.3s;" class="cta-button hover:bg-accent">SEND ME AN EMAIL</a>
+    </div>
+</section>
+
+    <!-- Skills Section -->
+<section id="skills" class="py-16 bg-accent">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">My Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white shadow-lg rounded-lg p-6 fade-in text-center"> <!-- Added text-center here -->
+                <h3 class="text-xl font-bold text-primary mb-4">PROJECT MANAGEMENT</h3>
+                <p class="text-gray-600">I am proficient in managing multiple projects, coordinating with various stakeholders, and meeting deadlines while balancing priorities.</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6 fade-in text-center"> <!-- Added text-center here -->
+                <h3 class="text-xl font-bold text-primary mb-4">STRATEGIC THINKING</h3>
+                <p class="text-gray-600">I have the ability to align design work with NGO's mission and goals, ensuring that visual content effectively supports advocacy.</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6 fade-in text-center"> <!-- Added text-center here -->
+                <h3 class="text-xl font-bold text-primary mb-4">CULTURAL SENSITIVITY</h3>
+                <p class="text-gray-600">I understand and have respect for diverse cultures, crucial for creating designs that resonate with varied audiences and are appropriate for different contexts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="testimonial-section py-16">
+        <div class="container mx-auto px-6 relative">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Testimonials</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-item active">
+                    <p class="text-xl">"Working with Esther was a game-changer for our Board reports. The design was not only beautiful but also effectively communicated our message"</p>
+                    <p class="text-lg mt-4"><em>- Samuel Ndungu, HRBP, Amref Health Africa</em></p>
+
+                </div>
+                <div class="testimonial-item">
+                    <p class="text-xl">"Esther’s creativity and attention to detail transformed our annual report into a compelling visual narrative. Her designs not only captured our mission but also resonated with our donors, resulting in a 40% increase in contributions. We couldn’t have asked for a better partner in our advocacy efforts"</p>
+                    <p class="text-lg mt-4"><em>- Lolem Ngong, Chief of Staff, Amref Health Africa</em></p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="text-xl">"Working with Esther was a game-changer for our organization. Her ability to distill complex data into clear and engaging infographics helped us communicate our impact more effectively to both stakeholders and the communities we serve. Her work is nothing short of exceptional."</p>
+                    <p class="text-lg mt-4"><em> Angela Muchiru, Group Human Resource Capital, Amref Health Africa</em></p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="text-xl">"Esther’s leadership in the design workshops was invaluable. She not only improved our team’s design skills but also inspired a creative culture within our department. Her designs consistently exceeded our expectations and always aligned perfectly with our branding and messaging goals"</p>
+                    <p class="text-lg mt-4"><em> Raphael Muema, Creative Director, Ramca Tech Comm</em></p>
+                </div>
+
+            </div>
+            <div class="testimonial-arrow left">&lt;</div>
+            <div class="testimonial-arrow right">&gt;</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="contact-section py-16">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold text-primary mb-8">Contact Me</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16">
+            <!-- Phone -->
+            <div class="contact-info">
+                <i class="fas fa-phone-alt fa-2x text-primary mb-4"></i>
+                <p class="text-lg font-bold">PHONE</p>
+                <p class="text-xl">+254 717 011 212</p>
+            </div>
+            <!-- Email -->
+            <div class="contact-info">
+                <i class="fas fa-envelope fa-2x text-primary mb-4"></i>
+                <p class="text-lg font-bold">EMAIL</p>
+                <p class="text-xl">info@esthermurugi.com</p>
+            </div>
+            <!-- WhatsApp -->
+            <div class="contact-info">
+                <i class="fab fa-whatsapp fa-2x text-primary mb-4"></i>
+                <p class="text-lg font-bold">WHATSAPP</p>
+                <p class="text-xl">+254 717 011 212</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Call to Action Section -->
+<section id="cta" class="relative flex items-center justify-center h-[40vh] bg-cover bg-center" style="background-image: url('Assets/photos/Background\ Pic\ 3.jpg');">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative z-10 text-center">
+        <h2 class="text-4xl font-bold text-white mb-6">Download My Resume</h2>
+        <a href="Assets/resume.pdf" target="_blank" class="bg-primary text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-accent transition duration-300 animate-bounce">Download</a>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-4 text-center fade-in">
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            const next = document.querySelector('.testimonial-arrow.right');
+            const prev = document.querySelector('.testimonial-arrow.left');
+            let current = 0;
+
+            function showTestimonial(index) {
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.classList.toggle('active', i === index);
+                });
+            }
+
+            next.addEventListener('click', () => {
+                current = (current + 1) % testimonials.length;
+                showTestimonial(current);
+            });
+
+            prev.addEventListener('click', () => {
+                current = (current - 1 + testimonials.length) % testimonials.length;
+                showTestimonial(current);
+            });
+        });
+    </script>
+
+</body>
+</html>
